@@ -11,12 +11,12 @@
  *---------------------------------------------------------------
  */
 
-if (!file_exists('ipconfig.php')) {
-    exit("The <b>ipconfig.php</b> file is missing! Please make a copy of the <b>ipconfig.php.example</b> file and rename it to <b>ipconfig.php</b>");
+if (!file_exists('config/ipconfig.php')) {
+    exit("The <b>config/ipconfig.php</b> file is missing! Please make a copy of the <b>config/ipconfig.php.example</b> file and rename it to <b>config/ipconfig.php</b>");
 }
 
 require('vendor/autoload.php');
-$dotenv = new \Dotenv\Dotenv(__DIR__, 'ipconfig.php');
+$dotenv = new \Dotenv\Dotenv(__DIR__, 'config/ipconfig.php');
 $dotenv->load();
 
 /**
@@ -296,7 +296,7 @@ if (!isset($view_folder[0]) && is_dir(APPPATH . 'views' . DIRECTORY_SEPARATOR)) 
 }
 
 
-define('IPCONFIG_FILE', FCPATH . 'ipconfig.php');
+define('IPCONFIG_FILE', FCPATH . 'config/ipconfig.php');
 
 define('LOGS_FOLDER', APPPATH . 'logs' . DIRECTORY_SEPARATOR);
 
