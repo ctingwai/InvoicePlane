@@ -45,6 +45,28 @@ If you want to install InvoicePlane in a subfolder (e.g. `http://your-invoicepla
 
 ---
 
+### Docker Installation
+
+1. Clone the respository.
+2. Build the image: `docker build -t invoiceplane`.
+3. Run the image in docker: `docker run -d --name invoiceplane -p 8080:80 invoiceplane`.
+4. Open `http://localhost:8080/index.php/setup` and follow the instructions.
+
+#### Persisten Storage
+The instructions above is only good for testing out new features and evaluation, all configurations will be erased after
+the container are removed. To persist the configurations and data, you need to mount the volume to
+`/var/www/html/config` and `/var/www/html/uploads` using `-v` option:
+
+- `-v path/to/host/ip/config:/var/www/html/config`: Invoice plane config files
+- `-v path/to/host/ip/uploaded/files:/var/www/html/uploads`: Uploaded files and attachments
+
+Example Usage:
+```
+docker run -d --name invoiceplane -v path/to/host/ip/config:/var/www/html/config -v path/to/host/ip/uploaded/files:/var/www/html/uploads -p 8080:80 invoiceplane
+```
+
+---
+
 ### Support / Development / Chat
 
 Need some help or want to talk with other about InvoicePlane? Follow these links to get in touch.  
